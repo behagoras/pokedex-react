@@ -17,6 +17,12 @@ class App extends Component {
 
             <div className="row">
                 <PokemonCard
+                    name="abra"
+                    number="55"
+                    avatar="img/pokemons/abra.jpg"
+                    types={['Mariconsito']}
+                    />
+                <PokemonCard
                     name="bulbasaur"
                     number="123"
                     avatar="img/pokemons/bulbasaur.jpg"
