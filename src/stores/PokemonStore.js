@@ -9,14 +9,14 @@ class PokemonStore extends Reflux.Store {
         this.listenables = Actions;
 
         this.state = {
-            data: []
+            data: [],
+            dataPokemon: {}
         }
     }
 
     getPokemons() {
         const self = this;
-        HTTP.json().
-            then((response) => {
+        HTTP.json().then((response) => {
                 self.setState({ data: response });
             });
 
@@ -25,6 +25,15 @@ class PokemonStore extends Reflux.Store {
             then((response) => {
                 self.setState({ data: response.pokemon });
             });*/
+    }
+
+    getPokemon(name) {
+        const self = this;
+
+        HTTP.get('http://pokeapi.co/api/v2/pokemon/' + name).then((response) => {
+            console.log(response);
+            self.setState({ dataPokemon: response });
+        });
     }
 }
 

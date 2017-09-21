@@ -25,10 +25,8 @@ class Home extends Reflux.Component {
         return(
             <PokemonCard
                 key={ index }
-                name={ currentValue.name }
-                number={ currentValue.id }
                 avatar={ "img/pokemons/" +  currentValue.name.toLowerCase()  +".jpg" }
-                types={ currentValue.type}
+                pokemon={ currentValue }
                 />
         );
     });

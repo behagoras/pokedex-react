@@ -11,7 +11,7 @@ class PokemonCard extends Component {
     super(props);
   }
   render() {
-    let types = this.props.types.map((currentValue, index, array) => {
+    let types = this.props.pokemon.type.map((currentValue, index, array) => {
       return (
         <PokemonType name={ currentValue } />
       );
@@ -21,12 +21,12 @@ class PokemonCard extends Component {
         <div className="pokemon panel panel-primary">
           <div className="panel-heading">
             <h1>
-              { this.props.name }
-              <span className="label label-primary pull-right">#{ this.props.number }</span>
+              { this.props.pokemon.name }
+              <span className="label label-primary pull-right">#{ this.props.pokemon.id }</span>
             </h1>
           </div>
           <div className="panel-body">
-            <Link to={"/pokemon/" + this.props.name.toLowerCase() } >
+            <Link to={"/pokemon/" + this.props.pokemon.name.toLowerCase() } >
               <img className="avatar center-block" src={ this.props.avatar } />
             </Link>
           </div>
@@ -42,10 +42,8 @@ class PokemonCard extends Component {
 }
 
 PokemonCard.propTypes = {
-  name: PropTypes.string.isRequired,
-  number: PropTypes.string.isRequired,
   avatar: PropTypes.string.isRequired,
-  types: PropTypes.array.isRequired,
+  pokemon: PropTypes.object.isRequired
 }
 
 export default PokemonCard;

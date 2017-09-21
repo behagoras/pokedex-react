@@ -7,7 +7,7 @@ class Navbar extends Component {
   render() {
     return (
       <div className="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div className="container-fluid">
+        <div className="container">
           <div className="navbar-header">
             <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
               <span className="sr-only">Toggle navigation</span>
