@@ -19,7 +19,8 @@ class PokemonStore extends Reflux.Store {
             then((response) => {
                 self.setState({ data: response });
             });
-        /*
+
+        /* Call poke api
         HTTP.get('http://pokeapi.co/api/v1/pokedex/1/').
             then((response) => {
                 self.setState({ data: response.pokemon });

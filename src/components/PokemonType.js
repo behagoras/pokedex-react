@@ -9,7 +9,7 @@ class PokemonType extends Component {
   render() {
     return (
         <a href="/grass">
-          <span className="label type type-grass">
+          <span className={ 'label type type-' + this.props.name.toLowerCase() }>
             { this.props.name }
           </span>
         </a>

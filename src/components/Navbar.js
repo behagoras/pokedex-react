@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import {
+  Link
+} from 'react-router-dom'
 
 class Navbar extends Component {
   render() {
@@ -12,10 +15,9 @@ class Navbar extends Component {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <a className="navbar-brand" href="#">
-              <img src="img/logo.png" />
+            <Link className="navbar-brand" to="/">
               Pokédex
-            </a>
+            </Link>
           </div>
         </div>
       </div>

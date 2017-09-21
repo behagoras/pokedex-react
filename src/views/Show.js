@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Header from '../components/Header';
 
 class Show extends Component {
   constructor(props) {
@@ -7,9 +8,10 @@ class Show extends Component {
     this.state = {};
   }
   render() {
+    console.log(this.props.match.params.name);
     return (
-      <div>
-
+      <div className="Show">
+        <Header title={ this.props.match.params.name } />
       </div>
     );
   }

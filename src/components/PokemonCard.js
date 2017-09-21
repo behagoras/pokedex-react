@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import {
+  Link
+} from 'react-router-dom'
 
 import PokemonType from './PokemonType';
 
@@ -8,6 +11,11 @@ class PokemonCard extends Component {
     super(props);
   }
   render() {
+    let types = this.props.types.map((currentValue, index, array) => {
+      return (
+        <PokemonType name={ currentValue } />
+      );
+    });
     return (
       <div className="col-md-3">
         <div className="pokemon panel panel-primary">
@@ -18,14 +26,13 @@ class PokemonCard extends Component {
             </h1>
           </div>
           <div className="panel-body">
-            <a href="/pokemon/{ this.props.name }">
+            <Link to={"/pokemon/" + this.props.name.toLowerCase() } >
               <img className="avatar center-block" src={ this.props.avatar } />
-            </a>
+            </Link>
           </div>
           <div className="panel-footer">
             <div className="text-center">
-              <PokemonType name="Maricon" />
-              <PokemonType name="Putisimo" />
+              { types }
             </div>
           </div>
         </div>

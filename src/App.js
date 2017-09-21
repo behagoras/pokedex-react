@@ -19,7 +19,7 @@ class App extends Component {
                 <Navbar />
                 <div className="container-fluid">
                     <Route exact path="/" component={Home} />
-                    <Route path="/pokemon" component={Show} />
+                    <Route path="/pokemon/:name" component={Show} />
                 </div>
             </div>
         </Router>
