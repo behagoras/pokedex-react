@@ -36,7 +36,7 @@ class PokemonCard extends Component {
 
 PokemonCard.propTypes = {
   name: PropTypes.string.isRequired,
-  number: PropTypes.number.isRequired,
+  number: PropTypes.string.isRequired,
   avatar: PropTypes.string.isRequired,
   types: PropTypes.array.isRequired,
 }

@@ -15,10 +15,15 @@ class PokemonStore extends Reflux.Store {
 
     getPokemons() {
         const self = this;
+        HTTP.json().
+            then((response) => {
+                self.setState({ data: response });
+            });
+        /*
         HTTP.get('http://pokeapi.co/api/v1/pokedex/1/').
             then((response) => {
-                self.setState({ data: response.data });
-            });
+                self.setState({ data: response.pokemon });
+            });*/
     }
 }
 
