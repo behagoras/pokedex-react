@@ -18,12 +18,10 @@ class Show extends Reflux.Component {
   }
 
   componentDidMount() {
-    console.log(this.state.dataPokemon)
     Actions.getPokemon(this.props.match.params.name);
   }
 
   render() {
-    console.log(this.state.dataPokemon)
     return (
       <div className="Show">
         <Header
@@ -40,6 +38,8 @@ class Show extends Reflux.Component {
           <PokemonTabs
             pokemon={ this.state.dataPokemon }
             />
+
+
         </div>
 
       </div>

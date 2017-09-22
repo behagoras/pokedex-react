@@ -10,28 +10,23 @@ class PokemonStore extends Reflux.Store {
 
         this.state = {
             data: [],
-            dataPokemon: {}
+            dataPokemon: {
+                types: []
+            }
         }
     }
 
     getPokemons() {
         const self = this;
         HTTP.json().then((response) => {
-                self.setState({ data: response });
-            });
-
-        /* Call poke api
-        HTTP.get('http://pokeapi.co/api/v1/pokedex/1/').
-            then((response) => {
-                self.setState({ data: response.pokemon });
-            });*/
+            self.setState({ data: response });
+        });
     }
 
     getPokemon(name) {
         const self = this;
 
-        HTTP.get('http://pokeapi.co/api/v2/pokemon/' + name).then((response) => {
-            console.log(response);
+        HTTP.get('http://pokeapi.co/api/v1/pokemon/' + name).then((response) => {
             self.setState({ dataPokemon: response });
         });
     }

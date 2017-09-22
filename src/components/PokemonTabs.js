@@ -6,13 +6,42 @@ import PokemonType from './PokemonType';
 class PokemonTabs extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      pokemon: {
+        types: [],
+        abilities: []
+      }
+    }
   }
-  render() {
-    let types = this.props.pokemon.types.map((currentValue, index, array) => {
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({pokemon: nextProps.pokemon});
+  }
+
+  getTypes() {
+    let types = this.state.pokemon.types.map((currentValue, index, array) => {
       return (
-        <PokemonType name={ currentValue.type.name } />
+        <PokemonType
+          key={ index }
+          name={ currentValue.name }
+          />
       );
     });
+
+    return types;
+  }
+
+  getAbilities() {
+    let abilities = this.state.pokemon.abilities.map((currentValue, index, array) => {
+      return (
+        <li key={ index }> { currentValue.name } </li>
+      );
+    });
+
+    return abilities;
+  }
+
+  render() {
     return (
       <div className="col-md-6">
         <ul id="MyTabs" className="nav nav-tabs nav-justified" role="tablist">
@@ -27,26 +56,21 @@ class PokemonTabs extends Component {
               <li className="list-group-item">
                 <strong>Type</strong>
                 <span className="pull-right">
-                  { types }
+                  { this.getTypes() }
                 </span>
               </li>
               <li className="list-group-item">
                 <strong>Height</strong>
-                <span className="pull-right">2′4″ (0.71m)</span>
+                <span className="pull-right">{ this.props.pokemon.height }</span>
               </li>
               <li className="list-group-item">
                 <strong>Weight</strong>
-                <span className="pull-right">15.2 lbs (6.9 kg)</span>
+                <span className="pull-right">{ this.state.pokemon.weight }</span>
               </li>
               <li className="list-group-item">
                 <strong>Abilities</strong>
                 <ul>
-                  <li>
-                    Overgrow
-                  </li>
-                  <li>
-                    Chlorophyll
-                  </li>
+                  { this.getAbilities() }
                 </ul>
               </li>
             </ul>
@@ -86,7 +110,7 @@ class PokemonTabs extends Component {
           <div role="tabpanel" className="tab-pane" id="evolution">
             <div className="text-center">
               <a href="/pokemon/ivysaur">
-                <img src="/img/pokemons/bulbasaur.jpg" width="160" />
+                <img src="/img/pokemons/bulbasaur.jpg" width="160" alt="sadfas" />
                 <p>
                   <strong>Bulbasaur</strong>
                 </p>
@@ -96,7 +120,7 @@ class PokemonTabs extends Component {
 
             <div className="text-center">
               <a href="#">
-                <img src="/img/pokemons/ivysaur.jpg" width="160" />
+                <img src="/img/pokemons/ivysaur.jpg" width="160" alt="sadfas" />
                 <p>
                   <strong>Ivysaur</strong>
                 </p>
@@ -106,7 +130,7 @@ class PokemonTabs extends Component {
 
             <div className="text-center">
               <a href="/pokemon/ivysaur">
-                <img src="/img/pokemons/venusaur.jpg" width="160" />
+                <img src="/img/pokemons/venusaur.jpg" width="160" alt="sadfas" />
                 <p>
                   <strong>Venusaur</strong>
                 </p>
@@ -120,7 +144,7 @@ class PokemonTabs extends Component {
 }
 
 PokemonTabs.propTypes = {
-  pokemon: PropTypes.object.isRequired
+  pokemon: PropTypes.any.isRequired
 }
 
 export default PokemonTabs;
