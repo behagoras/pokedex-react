@@ -21,13 +21,16 @@ class Show extends Reflux.Component {
     Actions.getPokemon(this.props.match.params.name);
   }
 
+  componentDidUpdate(prevProps, prevState) {
+  }
+
   render() {
     return (
       <div className="Show">
         <Header
           title={ this.props.match.params.name }
           isPokemon={ true }
-          number={ this.state.dataPokemon.id }
+          number={ this.state.dataPokemon.national_id }
           />
 
         <div className="row">

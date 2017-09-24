@@ -12,7 +12,8 @@ class PokemonStore extends Reflux.Store {
             data: [],
             dataPokemon: {
                 types: []
-            }
+            },
+            dataDescription: {}
         }
     }
 
@@ -28,6 +29,14 @@ class PokemonStore extends Reflux.Store {
 
         HTTP.get('http://pokeapi.co/api/v1/pokemon/' + name).then((response) => {
             self.setState({ dataPokemon: response });
+        });
+    }
+
+    getPokemonDescription(uri) {
+        const self = this;
+
+        HTTP.get('http://pokeapi.co' + uri).then((response) => {
+            self.setState({ dataDescription: response });
         });
     }
 }

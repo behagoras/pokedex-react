@@ -12,7 +12,9 @@ class PokemonCard extends Component {
   render() {
     let types = this.props.pokemon.type.map((currentValue, index, array) => {
       return (
-        <PokemonType name={ currentValue } />
+        <PokemonType
+          key={ index }
+          name={ currentValue } />
       );
     });
     return (
