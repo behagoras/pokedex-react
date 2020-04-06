@@ -8,7 +8,10 @@
     <link rel="stylesheet" href="%PUBLIC_URL%/css/bootstrap.min.css">
     <link rel="stylesheet" href="%PUBLIC_URL%/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="%PUBLIC_URL%/css/main.css">
-
+    <link rel='apple-touch-icon' href='/img/icon.png' />
+    <meta name='apple-mobile-web-app-title' content='PlatziRecetas' />
+    <meta name='apple-mobile-web-app-capable' content='yes' />
+    <meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />
     <!--
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
@@ -50,6 +53,11 @@
           $(this).tab('show')
         });
       });
+    </script>
+    <script>
+      window.addEventListener('load', () => {
+      // const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
+      const swUrl = `${process.env.PUBLIC_URL}/service_worker.js`;
     </script>
   </body>
 </html>
